@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cloud Computing</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,9 +23,52 @@
         Sistema creado en la asignatura Computación en la Nube del Instituto Profesional Santo Tomás
     </p>
 
-    <button>Ingresar al sistema</button>
+    <hr>
+
+    <h2>Registro de usuarios</h2>
+
+    <form id="formulario">
+
+        <input 
+            type="text"
+            id="nombre"
+            placeholder="Ingrese nombre"
+            required
+        >
+
+        <input 
+            type="date"
+            id="fecha"
+            required
+        >
+
+        <button type="submit">
+            Guardar
+        </button>
+
+    </form>
+
+    <h2>Datos guardados</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+
+        <tbody id="tablaDatos">
+        </tbody>
+
+    </table>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
