@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,64 +12,34 @@
 
 <body>
 
-<div class="contenedor">
+    <div class="contenedor">
 
-    <img src="logo-santo-tomas.jpg" alt="Logo Santo Tomás" class="logo">
-
-    <h1>Cloud Computing</h1>
-
-    <h2>Mi primer sistema Cloud</h2>
-
-    <p>
-        Sistema creado en la asignatura Computación en la Nube del Instituto Profesional Santo Tomás
-    </p>
-
-    <hr>
-
-    <h2>Registro de usuarios</h2>
-
-    <form id="formulario">
-
-        <input 
-            type="text"
-            id="nombre"
-            placeholder="Ingrese nombre"
-            required
+        <img
+            src="logo-santo-tomas.jpg"
+            alt="Logo Santo Tomás"
+            class="logo"
         >
 
-        <input 
-            type="date"
-            id="fecha"
-            required
-        >
+        <h1>Cloud Computing</h1>
 
-        <button type="submit">
-            Guardar
-        </button>
+        <h2>Sistema de Registro de Estudiantes</h2>
 
-    </form>
+        <p>
+            Sistema desarrollado en la asignatura Computación en la Nube
+            del Instituto Profesional Santo Tomás.
+        </p>
 
-    <h2>Datos guardados</h2>
+        <p>
+            Permite registrar y administrar información de estudiantes
+            utilizando almacenamiento local.
+        </p>
 
-    <table>
+        <a href="estudiantes.html" class="boton-ingresar">
+            Ingresar al sistema
+        </a>
 
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Fecha</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-
-        <tbody id="tablaDatos">
-        </tbody>
-
-    </table>
-
-</div>
-
-<script src="script.js"></script>
+    </div>
 
 </body>
+
 </html>
