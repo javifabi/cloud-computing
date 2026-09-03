@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro de Estudiantes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <img
+            src="logo-santo-tomas.jpg"
+            alt="Logo Santo Tomás"
+            class="logo"
+        >
+
+        <h1>Registro de Estudiantes</h1>
+
+        <p>
+            Ingrese los datos del estudiante.
+        </p>
+
+        <form id="formulario">
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre completo"
+                required
+            >
+
+            <input
+                type="number"
+                id="edad"
+                placeholder="Edad"
+                min="1"
+                required
+            >
+
+            <input
+                type="text"
+                id="rut"
+                placeholder="RUT"
+                required
+            >
+
+            <input
+                type="email"
+                id="correo"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <input
+                type="text"
+                id="carrera"
+                placeholder="Carrera"
+                required
+            >
+
+            <button type="submit">
+                Guardar estudiante
+            </button>
+
+        </form>
+
+        <h2>Estudiantes registrados</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>RUT</th>
+                    <th>Correo</th>
+                    <th>Carrera</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaDatos">
+            </tbody>
+        </table>
+
+        <br>
+
+        <a href="index.html" class="boton-ingresar">
+            Volver al inicio
+        </a>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
