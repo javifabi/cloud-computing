@@ -1,22 +1,37 @@
 const formulario = document.getElementById("formulario");
+
 const nombreInput = document.getElementById("nombre");
-const fechaInput = document.getElementById("fecha");
+const edadInput = document.getElementById("edad");
+const rutInput = document.getElementById("rut");
+const correoInput = document.getElementById("correo");
+const carreraInput = document.getElementById("carrera");
+
 const tablaDatos = document.getElementById("tablaDatos");
 
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+let estudiantes =
+    JSON.parse(localStorage.getItem("estudiantes")) || [];
 
-function mostrarUsuarios() {
+
+function mostrarEstudiantes() {
+
     tablaDatos.innerHTML = "";
 
-    usuarios.forEach((usuario) => {
+    estudiantes.forEach((estudiante) => {
+
         const fila = document.createElement("tr");
 
         fila.innerHTML = `
-            <td>${usuario.id}</td>
-            <td>${usuario.nombre}</td>
-            <td>${usuario.fecha}</td>
+            <td>${estudiante.id}</td>
+            <td>${estudiante.nombre}</td>
+            <td>${estudiante.edad}</td>
+            <td>${estudiante.rut}</td>
+            <td>${estudiante.correo}</td>
+            <td>${estudiante.carrera}</td>
             <td>
-                <button onclick="eliminarUsuario(${usuario.id})">
+                <button
+                    type="button"
+                    onclick="eliminarEstudiante(${estudiante.id})"
+                >
                     Eliminar
                 </button>
             </td>
@@ -26,38 +41,49 @@ function mostrarUsuarios() {
     });
 }
 
+
 formulario.addEventListener("submit", function(evento) {
+
     evento.preventDefault();
 
-    const nuevoUsuario = {
+    const nuevoEstudiante = {
+
         id: Date.now(),
+
         nombre: nombreInput.value,
-        fecha: fechaInput.value
+        edad: edadInput.value,
+        rut: rutInput.value,
+        correo: correoInput.value,
+        carrera: carreraInput.value
+
     };
 
-    usuarios.push(nuevoUsuario);
+    estudiantes.push(nuevoEstudiante);
 
     localStorage.setItem(
-        "usuarios",
-        JSON.stringify(usuarios)
+        "estudiantes",
+        JSON.stringify(estudiantes)
     );
 
-    mostrarUsuarios();
+    mostrarEstudiantes();
 
     formulario.reset();
 });
 
-function eliminarUsuario(id) {
-    usuarios = usuarios.filter(
-        usuario => usuario.id !== id
+
+function eliminarEstudiante(id) {
+
+    estudiantes = estudiantes.filter(
+        estudiante => estudiante.id !== id
     );
 
     localStorage.setItem(
-        "usuarios",
-        JSON.stringify(usuarios)
+        "estudiantes",
+        JSON.stringify(estudiantes)
     );
 
-    mostrarUsuarios();
+    mostrarEstudiantes();
 }
 
-mostrarUsuarios();
+
+mostrarEstudiantes();
