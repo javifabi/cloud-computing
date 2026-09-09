@@ -76,9 +76,9 @@ function mostrarProductos(filtro = "") {
             <td>${producto.nombre}</td>
             <td>${producto.categoria}</td>
             <td>$${producto.precio}</td>
-            <td>
-    ${producto.stock > 0 ? producto.stock : "Sin stock"}
-</td>
+    <td>
+        ${producto.stock > 0 ? producto.stock : "Sin stock"}
+    </td>
             <td>
                 <button
                     type="button"
@@ -102,6 +102,38 @@ function mostrarProductos(filtro = "") {
 
 formularioProducto.addEventListener("submit", function(evento) {
     evento.preventDefault();
+
+if (
+    nombreInput.value.trim() === "" ||
+    categoriaInput.value.trim() === ""
+) {
+    alert("Complete todos los campos");
+    return;
+}
+
+if (Number(precioInput.value) <= 0) {
+    alert("El precio debe ser mayor a 0");
+    return;
+}
+
+if (Number(stockInput.value) < 0) {
+    alert("El stock no puede ser negativo");
+    return;
+}
+
+const nombreNormalizado = nombreInput.value.trim().toLowerCase();
+
+const productoDuplicado = productos.find((producto) => {
+    return (
+        producto.nombre.trim().toLowerCase() === nombreNormalizado &&
+        producto.id !== idEditando
+    );
+});
+
+if (productoDuplicado) {
+    alert("Ya existe un producto con ese nombre");
+    return;
+}
 
     if (idEditando === null) {
         const nuevoProducto = {
