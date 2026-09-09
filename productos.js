@@ -6,6 +6,7 @@ const precioInput = document.getElementById("precio");
 const stockInput = document.getElementById("stock");
 
 const tablaProductos = document.getElementById("tablaProductos");
+const buscarInput = document.getElementById("buscar");
 
 let productos =
     JSON.parse(localStorage.getItem("productos")) || [];
@@ -19,10 +20,19 @@ function guardarProductos() {
     );
 }
 
-function mostrarProductos() {
+function mostrarProductos(filtro = "") {
     tablaProductos.innerHTML = "";
 
-    productos.forEach((producto) => {
+    const texto = filtro.toLowerCase();
+
+    const productosFiltrados = productos.filter((producto) => {
+        return (
+            producto.nombre.toLowerCase().includes(texto) ||
+            producto.categoria.toLowerCase().includes(texto)
+        );
+    });
+
+    productosFiltrados.forEach((producto) => {
         const fila = document.createElement("tr");
 
         fila.innerHTML = `
@@ -51,6 +61,35 @@ function mostrarProductos() {
         tablaProductos.appendChild(fila);
     });
 }
+    productos.forEach((producto) => {
+        const fila = document.createElement("tr");
+
+        fila.innerHTML = `
+            <td>${producto.id}</td>
+            <td>${producto.nombre}</td>
+            <td>${producto.categoria}</td>
+            <td>$${producto.precio}</td>
+            <td>${producto.stock}</td>
+            <td>
+                <button
+                    type="button"
+                    onclick="editarProducto(${producto.id})"
+                >
+                    Editar
+                </button>
+
+                <button
+                    type="button"
+                    onclick="eliminarProducto(${producto.id})"
+                >
+                    Eliminar
+                </button>
+            </td>
+        `;
+
+        tablaProductos.appendChild(fila);
+    });
+
 
 formularioProducto.addEventListener("submit", function(evento) {
     evento.preventDefault();
@@ -110,5 +149,9 @@ function eliminarProducto(id) {
     guardarProductos();
     mostrarProductos();
 }
+
+buscarInput.addEventListener("input", function() {
+    mostrarProductos(buscarInput.value);
+});
 
 mostrarProductos();
