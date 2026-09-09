@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Productos - TechStore</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <img
+            src="logo-santo-tomas.jpg"
+            alt="Logo Santo Tomás"
+            class="logo"
+        >
+
+        <h1>Gestión de Productos</h1>
+
+        <p>Ingrese los datos del producto.</p>
+
+        <form id="formularioProducto">
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Nombre del producto"
+                required
+            >
+
+            <input
+                type="text"
+                id="categoria"
+                placeholder="Categoría"
+                required
+            >
+
+            <input
+                type="number"
+                id="precio"
+                placeholder="Precio"
+                min="1"
+                required
+            >
+
+            <input
+                type="number"
+                id="stock"
+                placeholder="Stock"
+                min="0"
+                required
+            >
+
+            <button type="submit">
+                Guardar producto
+            </button>
+
+        </form>
+
+        <h2>Productos registrados</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaProductos">
+            </tbody>
+
+        </table>
+
+        <br>
+
+        <a href="index.html" class="boton-ingresar">
+            Volver al inicio
+        </a>
+
+    </div>
+
+    <script src="productos.js"></script>
+
+</body>
+
+</html>
