@@ -42,20 +42,27 @@ function mostrarProductos(filtro = "") {
             <td>$${producto.precio}</td>
             <td>${producto.stock}</td>
             <td>
-                <button
-                    type="button"
-                    onclick="editarProducto(${producto.id})"
-                >
-                    Editar
-                </button>
+    <button
+        type="button"
+        onclick="venderProducto(${producto.id})"
+    >
+        Vender
+    </button>
 
-                <button
-                    type="button"
-                    onclick="eliminarProducto(${producto.id})"
-                >
-                    Eliminar
-                </button>
-            </td>
+    <button
+        type="button"
+        onclick="editarProducto(${producto.id})"
+    >
+        Editar
+    </button>
+
+    <button
+        type="button"
+        onclick="eliminarProducto(${producto.id})"
+    >
+        Eliminar
+    </button>
+</td>
         `;
 
         tablaProductos.appendChild(fila);
@@ -69,7 +76,9 @@ function mostrarProductos(filtro = "") {
             <td>${producto.nombre}</td>
             <td>${producto.categoria}</td>
             <td>$${producto.precio}</td>
-            <td>${producto.stock}</td>
+            <td>
+    ${producto.stock > 0 ? producto.stock : "Sin stock"}
+</td>
             <td>
                 <button
                     type="button"
@@ -139,6 +148,23 @@ function editarProducto(id) {
 
     formularioProducto.querySelector("button").textContent =
         "Guardar cambios";
+}
+
+function venderProducto(id) {
+    const producto = productos.find(
+        producto => producto.id === id
+    );
+
+    if (producto.stock > 0) {
+        producto.stock--;
+
+        guardarProductos();
+        mostrarProductos(buscarInput.value);
+
+        alert("Venta realizada correctamente");
+    } else {
+        alert("Producto sin stock");
+    }
 }
 
 function eliminarProducto(id) {
