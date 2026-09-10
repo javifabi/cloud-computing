@@ -12,10 +12,9 @@ import {
 
 import {
     getAuth,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-
-
 const firebaseConfig = {
     apiKey: "AIzaSyA-kzYfsp9h6SO1R2VhRX1Reb6Bl_0ZPns",
     authDomain: "techstore-5b57e.firebaseapp.com",
@@ -52,6 +51,8 @@ const tablaProductos =
 const buscarInput =
     document.getElementById("buscar");
 
+const btnCerrarSesion =
+    document.getElementById("btnCerrarSesion");
 
 let productos = [];
 
@@ -489,5 +490,24 @@ buscarInput.addEventListener(
         mostrarProductos(
             buscarInput.value
         );
+    }
+);
+
+btnCerrarSesion.addEventListener(
+    "click",
+    async function() {
+
+        try {
+
+            await signOut(auth);
+
+            window.location.href = "login.html";
+
+        } catch (error) {
+
+            alert("Error al cerrar sesión");
+
+            console.error(error);
+        }
     }
 );
