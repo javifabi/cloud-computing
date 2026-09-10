@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Acceso - TechStore</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <img
+            src="logo-santo-tomas.jpg"
+            alt="Logo Santo Tomás"
+            class="logo"
+        >
+
+        <h1>TechStore</h1>
+
+        <h2>Iniciar sesión</h2>
+
+        <form id="formLogin">
+
+            <input
+                type="email"
+                id="correoLogin"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <input
+                type="password"
+                id="contrasenaLogin"
+                placeholder="Contraseña"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">
+                Iniciar sesión
+            </button>
+
+        </form>
+
+        <hr>
+
+        <h2>Crear cuenta</h2>
+
+        <form id="formRegistro">
+
+            <input
+                type="email"
+                id="correoRegistro"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <input
+                type="password"
+                id="contrasenaRegistro"
+                placeholder="Contraseña"
+                minlength="6"
+                required
+            >
+
+            <button type="submit">
+                Registrarse
+            </button>
+
+        </form>
+
+        <p id="mensaje"></p>
+
+        <br>
+
+        <a href="index.html" class="boton-ingresar">
+            Volver al inicio
+        </a>
+
+    </div>
+
+    <script type="module" src="auth.js"></script>
+
+</body>
+
+</html>
